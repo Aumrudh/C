@@ -1,0 +1,30 @@
+Script started on Tue 20 Nov 2018 12:44:55 PM IST
+bash-3.2$ cat distance.c
+/*Exercise 8 Program1
+AUMRUDH LAL KUMAR TJ*/
+//Program to calcaluate distance b\w 2points
+#include<stdio.h>
+#include<math.h>
+struct point
+{
+   float x;
+   float y;
+}p1,p2;
+main()
+{
+   float distance;
+   printf("Enter the first point\n");
+   scanf("%f%f",&p1.x,&p1.y);
+   printf("Enter the second point\n");
+   scanf("%f%f",&p2.x,&p2.y);
+   distance=sqrt((p1.y-p2.y)*(p1.y-p2.y)+(p1.x-p2.x)*(p1.x-p2.x));
+   printf("The distance between two points is %f\n",distance);
+}
+bash-3.2$ cc distance.c
+/tmp/cc4zjvqt.o: In function `main':
+distance.c:(.text+0xe6): undefined reference to `sqrt'
+collect2: ld returned 1 exit status
+bash-3.2$ exit
+exit
+
+Script done on Tue 20 Nov 2018 12:45:20 PM IST

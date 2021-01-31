@@ -1,0 +1,576 @@
+
+
+2018-10-09 12:32                     first731                     Page 1
+
+
+                                                        
+********************************************************
+USER NAME      :first731
+DATE AND TIME  :Tue Oct 9 12:32:09 IST 2018
+SERVER NAME    :mepcolinux.mepcoeng.ac.in
+JOB NAME       :exercisefinal.prn
+PRINT FROM     :172.16.3.198
+*********************************************************
+Script started on Tue 09 Oct 2018 11:04:37 AM IST
+bash-3.2$ cat pgm1.c
+/*AUMRUDH LAL KUMAR TJ 
+Exercise 4 Program 1*/
+//Program to convert decimal to hexadecimal
+#include<stdio.h>
+main()
+{
+  int m,n,i,a[1000],r,count=0;
+  printf("Enter a number \n" );
+  scanf("%d",&n);
+  m=n;
+   for(i=0;n>0;i++)
+     {
+      r=n%16;
+      a[i]=r;
+      n/=16;
+     }
+  count++;
+  printf("The hexadecimal equivalent for %d is\n",m);
+   for(i=count--;i>=0;i--)
+     {
+       if(a[i]==10)
+         printf("A");
+       else if(a[i]==11)
+         printf("B");
+       else if(a[i]==12)
+         printf("C");
+       else if(a[i]==13)
+         printf("D");
+       else if(a[i]==14)
+         printf("E");
+       else if(a[i]==15)
+         printf("F");
+       else 
+         printf("%d",a[i]);
+
+     }
+   printf("\n");
+}
+       
+
+bash-3.2$ cc pgm1.c
+bash-3.2$ ./a.out
+Enter a number 
+77
+The hexadecimal equivalent for 77 is
+4D
+bash-3.2$ ./a.out
+Enter a number 
+32
+The hexadecimal equivalent for 32 is
+20
+bash-3.2$ cat pgm2
+
+
+
+
+
+
+
+2018-10-09 12:32                     first731                     Page 2
+
+
+cat: pgm2: No such file or directory
+bash-3.2$ .[Kcat pgm2.c
+/*Exercise 4 Program 2
+AUMRUDH LAL KUMAR TJ*/
+//Program to check wheather roll no is present or not
+#include<stdio.h>
+main()
+{
+   int i,n,a[10],key,found;
+   printf("Enter the Number the Element \n");
+   scanf("%d",&n);
+   printf("Enter the Roll Numbers\n");
+   for(i=0;i<n;i++)
+    {
+      scanf("%d",&a[i]);
+    }
+    printf("Enter The element To be searched\n");
+    scanf("%d",&key);
+    for(i=0;i<n;i++)
+      {
+       if(key==a[i])
+        { 
+          found=1;
+        }
+      }
+    if(found==1)
+    {
+      printf("The Roll No is Present\n");
+    }
+    else
+    {
+      printf("The Roll No is Not Present\n");
+    }
+}
+bash-3.2$ cc pgm2.c
+bash-3.2$ cc pgm2.c^?[K[K[K[K[K[K[K[K[K[K.a[K/a.out
+Enter the Number the Element 
+6
+Enter the Roll Numbers
+1
+2
+3
+4
+5
+6
+Enter The element To be searched
+5
+The Roll No is Present
+bash-3.2$ ./a.out
+Enter the Number the Element 
+6
+Enter the Roll Numbers
+1
+2
+3
+4
+5
+6
+Enter The element To be searched
+8
+The Roll No is Not Present
+bash-3.2$ car[Kt pgm4[K3.c
+
+
+
+
+
+
+
+2018-10-09 12:32                     first731                     Page 3
+
+
+/*Exercise 5 Program 3
+AUMRUDH LAL KUMAR TJ*/
+//Program to Do Matrix Subtraction
+#include<stdio.h>
+main()
+{
+    int a[3][3],b[3][3],c[3][3];
+    int i,j;
+    printf("Enter The elements of Matrix A\n");
+    for(i=0;i<3;i++)
+    {
+      for(j=0;j<3;j++)
+        {
+          scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter The elements of Matrix B\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+         scanf("%d",&b[i][j]);
+        }
+     }
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+         {
+           c[i][j]=a[i][j]-b[i][j];
+         }
+     }
+    printf("Matrix A is\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+          printf("%d\t",a[i][j]);
+        }
+      printf("\n");
+     }
+     printf("Matrix B is\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+          printf("%d\t",b[i][j]);
+        }
+      printf("\n");
+     }
+    printf("Matrix C is\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+          printf("%d\t",c[i][j]);
+        }
+      printf("\n");
+     }
+
+         
+}
+bash-3.2$ ccc[K pgm3.c
+
+
+
+
+
+
+
+2018-10-09 12:32                     first731                     Page 4
+
+
+bash-3.2$ a[K./a.out
+Enter The elements of Matrix A
+1
+1
+1
+1
+1
+1
+11 
+1
+1
+Enter The elements of Matrix B
+1
+1
+1
+1
+1
+1
+1
+1
+1
+Matrix A is
+1	1	1	
+1	1	1	
+1	1	1	
+Matrix B is
+1	1	1	
+1	1	1	
+1	1	1	
+Matrix C is
+0	0	0	
+0	0	0	
+0	0	0	
+bash-3.2$ cat pgm4.c
+/*Exercise 5 Program 4
+AUMRUDH LALi KUMAR TJ*/
+//Program to Do Matrix Multiplication 
+#include<stdio.h>
+main()
+{
+    int a[3][3],b[3][3],c[3][3];
+    int i,j,k;
+    printf("Enter The elements of Matrix A\n");
+    for(i=0;i<3;i++)
+    {
+      for(j=0;j<3;j++)
+        {
+          scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter The elements of Matrix B\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+         scanf("%d",&b[i][j]);
+        }
+     }
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+         {
+
+
+
+
+
+
+
+2018-10-09 12:32                     first731                     Page 5
+
+
+           c[i][j]=0;
+           for(k=0;k<3;k++)
+            { 
+            c[i][j]+=a[i][k]*b[k][j];
+            }
+          }
+     }
+    printf("Matrix A is\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+          printf("%d\t",a[i][j]);
+        }
+      printf("\n");
+     }
+     printf("Matrix B is\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+                                                                                 
+       {
+          printf("%d\t",b[i][j]);
+        }
+      printf("\n");
+     }
+    printf("Matrix C is\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+          printf("%d\t",c[i][j]);
+        }
+      printf("\n");
+     }
+
+
+}
+bash-3.2$ cc pgm4.c
+bash-3.2$ .a[K/a.out
+Enter The elements of Matrix A
+1
+1
+1
+1
+1
+1
+1
+1
+1
+Enter The elements of Matrix B
+1
+1
+1
+1
+1
+1
+1
+1
+1
+Matrix A is
+1	1	1	
+
+
+
+
+
+
+
+2018-10-09 12:32                     first731                     Page 6
+
+
+1	1	1	
+1	1	1	
+Matrix B is
+1	1	1	
+1	1	1	
+1	1	1	
+Matrix C is
+3	3	3	
+3	3	3	
+3	3	3	
+bash-3.2$ ./a.out
+Enter The elements of Matrix A
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Enter The elements of Matrix B
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Matrix A is
+1	2	3	
+4	5	6	
+7	8	9	
+Matrix B is
+1	2	3	
+4	5	6	
+7	8	9	
+Matrix C is
+30	36	42	
+66	81	96	
+102	126	150	
+bash-3.2$ cat pgm5.c
+/*Exercise 5 Program 5
+AUMRUDH LAL KUMAR TJ*/
+//Program to Sort the weights in descending order
+#include<stdio.h>
+main()
+{
+    int a[100],n,i,j,temp;
+    printf("Enter the No. Of Elements in the array\n");
+    scanf("%d",&n);
+    printf("Enter the elements in the array \n");
+    for(i=0;i<n;i++)
+     {
+      scanf("%d",&a[i]);
+     }
+    for(i=0;i<n;i++)
+     {
+       for(j=i+1;j<n;j++)
+         {
+
+
+
+
+
+
+
+2018-10-09 12:32                     first731                     Page 7
+
+
+            if(a[i]<a[j])
+               {
+                  temp=a[i];
+                  a[i]=a[j];
+                  a[j]=temp;
+               }
+          }
+      }
+     printf("The sorted Array is \n");
+     for(i=0;i<n;i++)
+        {
+          printf("%d\n",a[i]);
+           
+        }
+}
+                          
+bash-3.2$ cc pgm5.c
+bash-3.2$ ./a.out
+Enter the No. Of Elements in the array
+6 5
+Enter the elements in the array 
+100
+566
+88
+99
+88
+The sorted Array is 
+566
+100
+99
+88
+88
+bash-3.2$ cat pgm6.c
+/*Exercise 5 Program 6
+AUMRUDH LAL KUMAR TJ
+Program to Print how many times 2,3,..12
+has occured when 100 times two dies is rolled*/
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+   int i,m,n,a[13];
+   for(i=2;i<=12;i++)
+     {
+       a[i]=0;
+     }
+  for(i=0;i<100;i++)
+    {
+      m=rand()%6+1;
+      n=rand()%6+1;
+      a[m+n]+=1;
+    }
+  for(i=2;i<=12;i++)
+    {
+      printf("The no of times sum of %d has occured is %d\n",i,a[i]);
+    }
+}
+bash-3.2$ cc pgm6.c
+bash-3.2$ ./a.out
+The no of times sum of 2 has occured is 4
+The no of times sum of 3 has occured is 2
+The no of times sum of 4 has occured is 4
+
+
+
+
+
+
+
+2018-10-09 12:32                     first731                     Page 8
+
+
+The no of times sum of 5 has occured is 15
+The no of times sum of 6 has occured is 14
+The no of times sum of 7 has occured is 16
+The no of times sum of 8 has occured is 13
+The no of times sum of 9 has occured is 13
+The no of times sum of 10 has occured is 10
+The no of times sum of 11 has occured is 8
+The no of times sum of 12 has occured is 1
+bash-3.2$ exit
+exit
+
+Script done on Tue 09 Oct 2018 11:27:54 AM IST
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

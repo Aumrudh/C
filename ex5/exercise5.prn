@@ -1,0 +1,384 @@
+Script started on Tue 16 Oct 2018 11:54:18 AM IST
+bash-3.2$ cat power.c
+/*Exercise 5 Program 1
+Aumrudh lal Kumar TJ*/
+//Program to Find Power of a Number Using function
+#include<stdio.h>
+int power(int,int);
+main()
+{
+  int n,number;
+  printf("Enter The Number\n"); 
+  scanf("%d",&number);
+  printf("Enter the power to which the number is to be raised\n");
+  scanf("%d",&n);
+  printf("The Power of number %d to power %d is %d\n",number,n,power(number,n));
+}
+
+int power(int originalnumber,int originalno)
+{
+  int result=1,i;
+  for(i=1;i<=originalno;i++)
+  result=result*originalnumber;
+  return result;
+}
+bash-3.2$ cc power.c
+bash-3.2$ ./ao[K.out
+Enter The Number
+2
+Enter the power to which the number is to be raised
+3
+The Power of number 2 to power 3 is 8
+bash-3.2$ ./a.out
+Enter The Number
+5
+Enter the power to which the number is to be raised
+3
+The Power of number 5 to power 3 is 125
+bash-3.2$ cat pgm2.c
+/*Exercise 5 Program 2
+AUMRUDH LAL KUMAR TJ*/
+//Program to calculate Simple intrest
+#include<stdio.h>
+float si(float,float,float);
+main()
+{
+   float principle,rateofintrest,noofyears;
+   printf("Enter the principle amount\n");
+   scanf("%f",&principle);
+   printf("Enter the Number of years\n");
+   scanf("%f",&noofyears);
+   printf("Enter the Rate of Intrest\n");
+   scanf("%f",&rateofintrest);
+   printf("The SI is %f\n",si(principle,noofyears,rateofintrest));
+}
+
+float si(float p,float n,float r)
+{
+ 
+   return ((p*n*r)/100);
+}
+
+bash-3.2$ cc pgm2.c
+bash-3.2$ .a[K/a.out
+Enter the principle amount
+100
+Enter the Number of years
+1
+Enter the Rate of Intrest
+2
+The SI is 2.000000
+bash-3.2$ ./[K/a.out
+Enter the principle amount
+100.50
+Enter the Number of years
+2
+Enter the Rate of Intrest
+3.5
+The SI is 7.035000
+bash-3.2$ cat minimumnumber.c
+/*Exercise 5 Program 3
+AUMRUDH LAL KUMAR TJ*/
+//Program to calculate minimum number in an array
+#include<stdio.h>
+int minimumnumber(int[],int);
+main()
+{
+   int a[10],n,i;
+   printf("Enter the number of elements in array\n");
+   scanf("%d",&n);
+   printf("Enter the elements in array\n");
+   for(i=0;i<n;i++)
+    {
+     scanf("%d",&a[i]);
+    }
+   printf("The minimum number in array is %d\n",minimumnumber(a,n));
+}
+
+int minimumnumber(int x[],int m)
+{
+    int minimum=x[0];
+    int i;
+    for(i=0;i<m;i++)
+     {
+        if(x[i]<minimum)
+          {
+             minimum=x[i];
+          }
+     }
+    return minimum;
+}
+bash-3.2$ cc minimumnumber.c
+bash-3.2$ .a[K/a.out
+Enter the number of elements in array
+5
+Enter the elements in array
+1
+2
+4
+3
+6
+The minimum number in array is 1
+bash-3.2$ .a[K/a.out'[K
+Enter the number of elements in array
+5
+Enter the elements in array
+5
+66
+2
+99
+66
+The minimum number in array is 2
+bash-3.2$ cat sort.c
+/*Exercise 5 Program 4
+AUMRUDH LAL KUMAR TJ*/
+//Program to sort the elements in ascending order using functions
+#include<stdio.h>
+void ascendingsort(int[],int);
+main()
+{
+   int i,a[10],n;
+   printf("Enter the no. of elements in array\n");
+   scanf("%d",&n);
+   printf("Enter the numbers to be sorted\n");
+   for(i=0;i<n;i++)
+   {
+     scanf("%d",&a[i]);
+   }
+   ascendingsort(a,n);
+}
+
+void ascendingsort(int x[],int m)
+{
+   int i,j,temp;
+   for(i=0;i<m;i++)
+     {
+       for(j=i+1;j<m;j++)
+         {
+           if((x[i]>x[j]))
+             {
+               temp=x[i];
+               x[i]=x[j];
+               x[j]=temp;
+             }
+         }
+      }
+    printf("The sorted array is\n");
+    for(i=0;i<m;i++)
+      {
+           printf("%d\t",x[i]);
+      }
+    printf("\n");
+}
+bash-3.2$ cc sort.c
+bash-3.2$ .a[K/a.out
+Enter the no. of elements in array
+5
+Enter the numbers to be sorted
+100
+500
+669
+2
+8
+The sorted array is
+2	8	100	500	669	
+bash-3.2$ ./a.out
+Enter the no. of elements in array
+5
+Enter the numbers to be sorted
+555
+9 400
+95
+866
+220
+The sorted array is
+95	220	400	555	866	
+bash-3.2$ cat gcd.c
+/*Exercise 5 Program 5
+AUMRUDH LAL KUMAR TJ*/
+//Program to Find GCD
+#include<stdio.h>
+int gcd(int,int);
+main()
+{
+   int number1,number2;
+   printf("Enter the 2 Numbers\n");
+   scanf("%d%d",&number1,&number2);
+   printf("The gcd of (%d,%d) is %d\n",number1,number2,gcd(number1,number2));
+}
+
+int gcd(int a,int b)
+{
+   int rem;
+   rem=a%b;
+   if(rem==0)
+    {
+      return b;
+    }
+   else 
+    {
+      return gcd(a,rem);
+    }
+}
+bash-3.2$ cc gcd.c
+bash-3.2$ .a[K/a.out
+Enter the 2 Numbers
+8
+4
+The gcd of (8,4) is 4
+bash-3.2$ ./a.out
+Enter the 2 Numbers
+7
+5
+The gcd of (7,5) is 1
+bash-3.2$ cc[Kat binarysearch.c 
+/*Exercise 5 Program 6
+AUMRUDH LAL KUMAR TJ*/
+//Program to do binary search using recursion functions
+#include<stdio.h>
+int binarysearch(int[],int,int,int);
+main()
+{
+    int a[20],n,key,low,high,mid,i,position;
+    printf("Enter The no. of elements\n");
+    scanf("%d",&n);
+    printf("Enter the array elements only in sorted order\n");
+    for(i=0;i<n;i++)
+    {
+      scanf("%d",&a[i]);
+    }
+    printf("Enter the element to be searched \n");
+    scanf("%d",&key);
+    low=0;
+    high=n-1;
+    position=binarysearch(a,key,low,high);
+    if(position!=-1)
+     {
+       printf("The element %d is present at %d position\n",key,position);
+     }
+    else
+     {
+       printf("The element is not found in the array\n");
+     }
+}
+
+int binarysearch(int x[],int value,int l,int h)
+{
+   int mid;
+   mid=(l+h)/2;
+   if(l>h)
+    {
+      return -1;
+    }
+   else if(x[mid]==value)
+    {
+         return mid+1;
+    }
+   else if(x[mid]>value)
+   {
+     h=mid-1;
+     return binarysearch(x,value,l,h);
+   }
+   else
+   {
+     l=mid+1;
+     return binarysearch(x,value,l,h);
+   }
+}
+bash-3.2$ cc binarysearch.c
+bash-3.2$ ,[K.a[K/a.out
+Enter The no. of elements
+5
+Enter the array elements only in sorted order
+5
+15
+25
+35
+45
+Enter the element to be searched 
+35
+The element 35 is present at 4 position
+bash-3.2$ ./a.out
+Enter The no. of elements
+5
+Enter the array elements only in sorted order
+10
+200
+300
+500
+800
+Enter the element to be searched 
+3
+The element is not found in the array
+bash-3.2$ cc transpose.c
+bash-3.2$ cat transpose.c
+/*EXERCISE 5 PROGRAM 7
+AUMRUDH LAL KUMAR TJ*/
+//Program to print transpose of a matrix
+#include<stdio.h>
+#define row 3
+#define col 3
+void matrixtranspose(int[][col]);
+main()
+{
+    int a[row][col];
+    int i,j;
+    printf("Enter the Matrix\n");
+    for(i=0;i<row;i++)
+     {
+      for(j=0;j<col;j++)
+       {
+         scanf("%d",&a[i][j]);
+       }
+     }
+    printf("The Entered matrix is \n");
+    for(i=0;i<row;i++)
+     {
+      for(j=0;j<col;j++)
+        {
+          printf("%d\t",a[i][j]);
+        }
+      printf("\n");
+     }
+    matrixtranspose(a);
+}
+
+void matrixtranspose(int x[][col])
+{
+    int i,j;
+    printf("The transpose of matrix is \n");
+    for(i=0;i<row;i++)
+     {
+       for(j=0;j<col;j++)
+          {
+            printf("%d\t",x[j][i]);
+          }
+       printf("\n");
+     }
+    printf("\n");
+} 
+bash-3.2$ cc transpose.c
+bash-3.2$ ./a.out
+Enter the Matrix
+1
+2
+3
+4
+5
+6
+7
+8
+9
+The Entered matrix is 
+1	2	3	
+4	5	6	
+7	8	9	
+The transpose of matrix is 
+1	4	7	
+2	5	8	
+3	6	9	
+
+bash-3.2$ exit
+exit
+
+Script done on Tue 16 Oct 2018 12:00:48 PM IST

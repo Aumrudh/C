@@ -1,0 +1,289 @@
+Script started on Fri 30 Nov 2018 12:48:09 PM IST
+bash-3.2$ cat billamount.c
+/*Exercise 9 Program 1
+AUMRUDH LAL KUMAR TJ*/
+//Program to calculate bill
+#include<stdio.h>
+#include<malloc.h>
+struct Items
+{
+   int itemno;
+   char name[20];
+   int quantity;
+   float price;
+   float amount;
+}*it;
+main()
+{
+    int n,i;
+    float billamount=0.0;
+    typedef struct Items item;
+    printf("Enter the Number of items purchased\n");
+    scanf("%d",&n);
+    it=(item*)malloc(n*sizeof(item));
+    for(i=0;i<n;i++)
+      {
+        printf("Enter the item no\n");
+        scanf("%d",&it[i].itemno);
+        printf("Enter the name of the item\n");
+        scanf("%s",&it[i].name);
+        printf("Enter the quantity\n");
+        scanf("%d",&it[i].quantity);
+        printf("Enter the price\n");
+        scanf("%f",&it[i].price);
+      }
+    for(i=0;i<n;i++)
+      {
+        it[i].amount=it[i].price*it[i].quantity;
+        billamount+=it[i].amount;
+      }
+    printf("\n-------------------------------------------------------------------------\n");
+    printf("\nItem No.\tName\t Quantity\t Price\t Amount\n");
+    printf("\n-------------------------------------------------------------------------\n");
+    for(i=0;i<n;i++)
+      {
+        printf("%d\t%s\t%d\t%.2f\t%.2f\n",it[i].itemno,it[i].name,it[i].quantity,it[i].price,it[i].amount);
+      }
+    printf("The Total bill amount =%.2f\n",billamount);
+}
+
+    
+bash-3.2$ cc billamount.c
+bash-3.2$ ./a.out
+Enter the Number of items purchased
+3
+Enter the item no
+1
+Enter the name of the item
+book
+Enter the quantity
+2
+Enter the price
+50
+Enter the item no
+2
+Enter the name of the item
+pen
+Enter the quantity
+5
+Enter the price
+10
+Enter the item no
+3
+Enter the name of the item
+note
+Enter the quantity
+2
+Enter the price
+50
+
+-------------------------------------------------------------------------
+
+Item No.	Name  Quantity	 Price	     Amount
+
+-------------------------------------------------------------------------
+1       	book  	2      	50.00   	100.00
+2        	pen   	5     	10.00	    50.00
+3       	note   	2     	50.00   	100.00
+The Total bill amount =250.00
+bash-3.2$ cat ticket.c
+/*Exercise9 Program 2
+AUMRUDH LAL KUMAR*/
+//Program to print ticketlist
+#include<stdio.h>
+#include<malloc.h>
+typedef struct tickets
+{
+   int tno;
+   char name[20];
+   char boarding[15];
+   char destination[10];
+}ticket;
+main()
+{
+   int i,n,no,flag=0;
+   ticket *tc;
+   printf("Enter the no of tickets\n");
+   scanf("%d",&n);
+   tc=(ticket*)malloc(sizeof(ticket)*n);
+   for(i=0;i<n;i++)
+     {
+       printf("Enter the Ticket no\n");
+       scanf("%d",&tc[i].tno);
+       printf("Enter the name\n");
+       scanf("%s",tc[i].name);
+       printf("Enter the Boarding Point\n");
+       scanf("%s",tc[i].boarding);
+       printf("Enter the destination\n");
+       scanf("%s",tc[i].destination);
+     }
+    printf("\n-------------------------------------------------------------------------\n");
+    printf("\nTicketNo.\tName\t Boardingpoint\t Destination\n");
+    printf("\n-------------------------------------------------------------------------\n");
+    for(i=0;i<n;i++)
+       {
+         printf("%d\t\t%s\t%s\t\t%s\n",tc[i].tno,tc[i].name,tc[i].boarding,tc[i].destination);
+       }
+    printf("Enter the ticket no to be searched \n");
+    scanf("%d",&no);
+    for(i=0;i<n;i++)
+       {
+        if(no==tc[i].tno)
+        flag=1;
+        break;
+       }
+    if(flag==1)
+      {
+        printf("Ticket is confirmed\n");
+      }
+    else
+     {
+      printf("Ticket is not confirmed\n");
+     }
+}
+ 
+bash-3.2$ cc ticket.c
+bash-3.2$ ./a.out
+Enter the no of tickets
+3
+Enter the Ticket no
+1334
+Enter the name
+ram
+Enter the Boarding Point
+madurai
+Enter the destination
+chennai
+Enter the Ticket no
+1339
+Enter the name
+shyam
+Enter the Boarding Point
+trichy
+Enter the destination
+chennai
+Enter the Ticket no
+1345
+Enter the name
+siva
+Enter the Boarding Point
+madurai
+Enter the destination
+trichy
+
+-------------------------------------------------------------------------
+
+TicketNo.	Name	 Boardingpoint	 Destination
+
+-------------------------------------------------------------------------
+1334		ram      	madurai     		chennai
+1339		shyam			trichy					chennai
+1345		siva     	madurai					trichy
+Enter the ticket no to be searched 
+1339
+Ticket is confirmed
+bash-3.2$ ./a.out
+Enter the no of tickets
+2
+Enter the Ticket no
+1350
+Enter the name
+aumrudh
+Enter the Boarding Point
+madurai
+Enter the destination
+bangalore
+Enter the Ticket no
+1349
+Enter the name
+lal
+Enter the Boarding Point
+chennai
+Enter the destination
+bangalore
+
+-------------------------------------------------------------------------
+
+TicketNo.	Name	  Boardingpoint	  Destination
+
+-------------------------------------------------------------------------
+1350		 aumrudh	madurai	       	bangalore
+1349	   lal    	chennai   	  	bangalore
+Enter the ticket no to be searched 
+1325
+Ticket is not confirmed
+bash-3.2$ cat bank.c
+/*Exercise 9 Program 3
+AUMRUDH LAL KUMAR*/
+//Program for bank
+#include<stdio.h>
+struct bankaccount
+{
+   int ano;
+   char name[20];
+   float credit;
+   float debit;
+   float balance;
+};
+main()
+{
+    int choice;
+    struct bankaccount ba,*ptr;
+    ptr=&ba;   
+    printf("Enter Acccount number\n");
+    scanf("%d",&ptr->ano);
+    printf("Enter Account holder name\n");
+    scanf("%s",ptr->name);
+    printf("Enter the opening balance\n");
+    scanf("%f",&ptr->balance);
+    printf("1.Deposit \n2.Withdraw\n");
+    scanf("%d",&choice);
+    if(choice==1)
+     { 
+       printf("Enter the deposit amount\n");
+       scanf("%f",&ptr->credit);
+       ptr->balance=(ptr->balance)+(ptr->credit);
+       printf("New balance is %f\n",ptr->balance);
+     }
+     else if(choice==2)
+     {
+       printf("Enter the withdraw amount\n");
+       scanf("%f",&ptr->debit);
+       ptr->balance=ptr->balance-ptr->debit;
+       printf("New balance is %f\n",ptr->balance);
+     }
+     else
+     {
+      printf("Enter a valid Choice\n");
+     }
+}
+bash-3.2$ cc bank.c
+bash-3.2$ ./a.out
+Enter Acccount number
+4589
+Enter Account holder name
+sanjay
+Enter the opening balance
+1000
+1.Deposit 
+2.Withdraw
+1
+Enter the deposit amount
+100
+New balance is 1100.000000
+bash-3.2$ ./a.out
+Enter Acccount number
+04879
+Enter Account holder name
+surya
+Enter the opening balance
+10000
+1.Deposit 
+2.Withdraw
+2
+Enter the withdraw amount
+9000
+New balance is 1000.000000
+bash-3.2$ exit
+
+Script done on Fri 30 Nov 2018 12:56:57 PM IST

@@ -1,0 +1,20 @@
+Script started on Tue 25 Sep 2018 11:24:48 AM IST
+bash-3.2$ cat pg[K[Kvip[K pgm1.c
+cat: vi: No such file or directory
+/*Aumrudh Lal Kumar TJ
+Exercise2 Program1*/
+#include<stdio.h>
+main()
+{
+   int N;
+   printf("Enter A number\n");
+   scanf("%d",&N);
+   (N%6==0)?
+   printf("The Given number %d is divisible by 6\n",N):
+   printf("The given number %d is not divisible by 6\n",N);
+}
+
+bash-3.2$ cc pgm1[K[K[K[K[K[K[Kexit
+exit
+
+Script done on Tue 25 Sep 2018 11:25:15 AM IST

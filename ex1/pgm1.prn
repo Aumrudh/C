@@ -1,0 +1,32 @@
+Script started on Wed 12 Sep 2018 01:01:01 PM IST
+bash-3.2$ cat pgm1.c
+/*Aumrudh Lal Kumr TJ
+Exercise1 Program1*/
+#include<stdio.h>
+main()
+{
+  float basicpay,DA,HRA,allowance;
+  float grosssalary,netsalary,deduction;
+  printf("Enter the basic pay\n");
+  scanf("%f",&basicpay);
+  DA=(50*basicpay)/100;
+  HRA=(10*basicpay)/100;
+  allowance=1000;
+  grosssalary=basicpay+DA+HRA+allowance;
+	deduction=(15*basicpay)/100;
+  netsalary=grosssalary-deduction;
+  printf("The Gross Salary of the employee %f\n",grosssalary);
+  printf("The Net Salary of the employee %f\n",netsalary);
+}
+bash-3.2$ cc pgm1.c
+bash-3.2$ ./a.out
+Enter the basic pay
+1000
+The Gross Salary of the employee 2600.000000
+The Net Salary of the employee 2450.000000
+bash-3.2$ cat cd[K[Keit
+cat: eit: No such file or directory
+bash-3.2$ exit
+exit
+
+Script done on Wed 12 Sep 2018 01:02:56 PM IST

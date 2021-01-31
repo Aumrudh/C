@@ -1,0 +1,112 @@
+Script started on Tue 18 Sep 2018 12:59:58 PM IST
+bash-3.2$ cat pgm1.c
+/*Aumrudh Lal Kumar TJ
+Exercise2 Program1*/
+#include<stdio.h>
+main()
+{
+   int N;
+   printf("Enter A number\n");
+   scanf("%d",&N);
+   (N%6==0)?
+   printf("The Given number %d is divisible by 6\n",N):
+   printf("The given number %d is not divisible by 6\n",N);
+}
+
+bash-3.2$ cc pgm1.c
+bash-3.2$ cc pgm1.c[1@at[C[C[C[C[C[C[C[4Plogout[4Pcdvi pgm4.c[2P./a.outcc pgm4.c[2P./a.out
+Enter A number
+18
+The Given number 18 is divisible by 6
+bash-3.2$ ./a.out
+Enter A number
+10
+The given number 10 is not divisible by 6
+bash-3.2$ cat pfm[K[Kgm2.c
+/*Aumrudh Lal Kumar TJ
+Exercise 2 Program 2 -  Award Grade according to grades*/
+#include<stdio.h>
+main()
+{
+    int m1,m2,m3,m4,total,avg;
+    printf("Enter the marks of the four subjects\n");
+    scanf("%d%d%d%d",&m1,&m2,&m3,&m4);
+    total=m1+m2+m3+m4;
+    avg=total/4;
+    if(avg>79&&avg<100)
+      {
+        printf("Good\n");
+      }
+    else if(avg>59&&avg<80)
+      {
+        printf("Average\n");
+      }
+    else if(avg>39&&avg<60)
+      {
+        printf("Fail");
+      }
+    else
+      {
+        printf("Fail\n");
+      }
+}
+       
+
+bash-3.2$ cat pgm2.c[3P./a.outcc pgm1.c[1P.c2.c
+bash-3.2$ cc pgm2.c[1@at[C[C[C[C[C[C[C[3P./a.out
+Enter the marks of the four subjects
+100
+100
+100
+91
+Good
+bash-3.2$ ./a.outcc pgm2.c[2P./a.out
+Enter the marks of the four subjects
+100   40
+50
+60
+40
+Failbash-3.2$ cc [K[K[Kcat pgm3.c
+/*Aumrudh Lal Kumr
+Exercise 2 Program 3*/
+//Progrm to find the root of Quadratic Equation
+#include<stdio.h>
+#include<math.h>
+main()
+{
+   float a,b,c,d,root1,root2;
+   printf("Enter a b c of the quadratic equation\n");
+   scanf("%f%f%f",&a,&b,&c);
+   d=(b*b)-(4*a*c);
+   if(d<0)
+     {
+       printf("Roots Are complex Numbers\n");
+       printf("The Roots Are\n");
+       printf("%.3f+%.3fi\n",-b/(2*a),sqrt(-d)/(2*d));
+       printf("%.3f+%.3fi",-b/(2*a),-sqrt(-d)/(2*d));
+     }
+   else if(d==0)
+     {
+       printf("Both roots are equal \n");
+       root1=-b/(2*a);
+       printf("Roots of quadratic equation is %.3f",root1);
+     }
+   else
+     {
+       printf("Roots are real number\n");
+       root1=(-b+sqrt(d))/(2*a);
+       root2=(-b-sqrt(d))/(2*a);
+       printf("Root of QF is %.3f and %.3f",root1,root2);
+     }
+}
+bash-3.2$ cat pgm3.c[3P./a.outcc pgm2.c[1@at[C[C[C[C[C[C[C[1Pc[C[C[C[C[C[C[C[1P.c3.c
+/tmp/ccEGFdEz.o: In function `main':
+pgm3.c:(.text+0xba): undefined reference to `sqrt'
+pgm3.c:(.text+0x129): undefined reference to `sqrt'
+pgm3.c:(.text+0x208): undefined reference to `sqrt'
+pgm3.c:(.text+0x256): undefined reference to `sqrt'
+collect2: ld returned 1 exit status
+bash-3.2$ cc l[K-lm[K[K[K[K[K[Kexit
+exit
+
+Script done on Tue 18 Sep 2018 01:01:52 PM IST

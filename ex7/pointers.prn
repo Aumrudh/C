@@ -1,0 +1,107 @@
+Script started on Tue 20 Nov 2018 11:08:10 AM IST
+bash-3.2$ cat pgm1.c
+/*Exercise 7 Program 1
+AUMRUDH LAL KUMAR TJ*/
+//Program to find largest  of three nos using pointers
+#include<stdio.h>
+int *larger(int*,int*,int*);
+main()
+{
+    int a,b,c,*p,big;
+    p=&big;
+    printf("Enter 3 numbers\n");
+    scanf("%d%d%d",&a,&b,&c);
+    *p=larger(&a,&b,&c);
+    printf("The largest of three nos is %d\n",*p);
+}
+
+int *larger(int*x,int*y,int*z)
+{
+   if((*x>*x)&&(*x>*z))
+     return *x;
+   else if((*y>*x)&&(*y>*z))
+     return *y;
+   else 
+     return *z;
+}
+bash-3.2$ cc pgm1.c
+pgm1.c: In function ‘main’:
+pgm1.c:12: warning: assignment makes integer from pointer without a cast
+pgm1.c: In function ‘larger’:
+pgm1.c:19: warning: return makes pointer from integer without a cast
+pgm1.c:21: warning: return makes pointer from integer without a cast
+pgm1.c:23: warning: return makes pointer from integer without a cast
+bash-3.2$ ./a.out
+Enter 3 numbers
+2 10
+20
+5
+The largest of three nos is 20
+bash-3.2$ cat fibo[Kbo.c
+/*Exercise 7 Program 2
+AUMRUDH LAL KUMAR*/
+//Program to Generate fibbanacci series using pointer
+#include<stdio.h>
+#include<malloc.h>
+main()
+{
+   int n,first,second,i,*ptr;
+   first=0;second=1;
+   printf("Enter the no of terms\n");
+   scanf("%d",&n);
+   ptr=(int*)malloc(sizeof(int)*n);
+   *(ptr+0)=0;
+   *(ptr+1)=1;
+   for(i=2;i<n;i++)
+     {
+       *(ptr+i)=first+second;
+       first=second;
+       second=*(ptr+i);
+     }
+   for(i=0;i<n;i++)
+    printf("%d\t",*(ptr+i));
+    printf("\n");
+}
+bash-3.2$ cc fibbo.c
+bash-3.2$ ./a.out
+Enter the no of terms
+7
+0	1	1	2	3	5	8	
+bash-3.2$ cat reverse.c
+/*Exercise 7 Program 3
+AUMRUDH LAL KUMAR TJ*/
+//Program to reverse a string using pointer
+#include<stdio.h>
+#include<string.h>
+void reverse(char*);
+main()
+{
+    char str[20];
+    printf("Enter the string\n");
+    scanf("%s",str);
+    reverse(str);
+    printf("The reversed string is %s\n",str);
+}
+
+void reverse(char*string)
+{
+   char *first,*last,temp;
+   int length;
+   length=strlen(string);
+   first=string;
+   last=&string[length-1];
+   while(first<last)
+     {
+       temp=*first;
+       *first=*last;
+       *last=temp;
+       first++;
+       last--;
+     }
+}
+bash-3.2$ cc reverse.c[C[C[C[C[C[C[C[C[C[Cls[K
+a.out  fibbo.c	marks,c  marks.c  pgm1.c  pgm5.c  pointer.prn  pointers.prn  reverse.c	rollno.c  sd.c	searchstring.c
+bash-3.2$ lscat reverse.c[K[K[K[K[K[K[K[K[K[K[K[K[Kexit
+exit
+
+Script done on Tue 20 Nov 2018 11:09:22 AM IST

@@ -1,0 +1,80 @@
+Script started on Tue 09 Oct 2018 11:01:49 AM IST
+bash-3.2$ cat pgm1.c[K[Kvpgm1ipgm1 pgm1[C[C[C[C.c
+cat: vi: No such file or directory
+/*AUMRUDH LAL KUMAR TJ 
+Exercise 4 Program 1*/
+//Program to convert decimal to hexadecimal
+#include<stdio.h>
+main()
+{
+  int m,n,i,a[1000],r,count=0;
+  printf("Enter a number \n" );
+  scanf("%d",&n);
+  m=n;
+   for(i=0;n>0;i++)
+     {
+      r=n%16;
+      a[i]=r;
+      n/=16;
+     }
+  count++;
+  printf("The hexadecimal equivalent for %d is\n",m);
+   for(i=count--;i>=0;i--)
+     {
+       if(a[i]==10)
+         printf("A");
+       else if(a[i]==11)
+         printf("B");
+       else if(a[i]==12)
+         printf("C");
+       else if(a[i]==13)
+         printf("D");
+       else if(a[i]==14)
+         printf("E");
+       else if(a[i]==15)
+         printf("F");
+       else 
+         printf("%d",a[i]);
+
+     }
+   printf("\n");
+}
+       
+
+bash-3.2$ cat pgm2.c
+/*Exercise 4 Program 2
+AUMRUDH LAL KUMAR TJ*/
+//Program to check wheather roll no is present or not
+#include<stdio.h>
+main()
+{
+   int i,n,a[10],key,found;
+   printf("Enter the Number the Element \n");
+   scanf("%d",&n);
+   printf("Enter the Roll Numbers\n");
+   for(i=0;i<n;i++)
+    {
+      scanf("%d",&a[i]);
+    }
+    printf("Enter The element To be searched\n");
+    scanf("%d",&key);
+    for(i=0;i<n;i++)
+      {
+       if(key==a[i])
+        { 
+          found=1;
+        }
+      }
+    if(found==1)
+    {
+      printf("The Roll No is Present\n");
+    }
+    else
+    {
+      printf("The Roll No is Not Present\n");
+    }
+}
+bash-3.2$ cat[K[K[Kexit
+exit
+
+Script done on Tue 09 Oct 2018 11:02:31 AM IST

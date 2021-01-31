@@ -1,0 +1,159 @@
+Script started on Tue 04 Dec 2018 11:55:27 AM IST
+bash-3.2$ cat sort.c
+/*Exercise 11 Program 1
+AUMRUDH LAL KUMAR TJ*/
+#include<stdio.h>
+#include<stdlib.h>
+struct item
+{
+  int ino;
+  char name[20];
+}it[20],temp;
+main()
+{
+   FILE *fp;
+   int i,j,n;
+   fp=fopen("Itemlist.dat","wb");
+   if(fp==NULL)
+     {
+       puts("File cant be opened\n");
+       exit(1);
+     }
+   printf("Enter the no of items\n");
+   scanf("%d",&n);
+   for(i=0;i<n;i++)
+      {
+        printf("Enter Item no\n");
+        scanf("%d",&it[i].ino);
+        printf("Enter Item name\n");
+        scanf("%s",it[i].name);
+        fprintf(fp,"%d\t%s",it[i].ino,it[i].name);
+      }
+   for(i=0;i<n;i++)
+      {
+        fscanf(fp,"%d\t%s",&it[i].ino,it[i].name);
+        for(j=i+1;j<n;j++)
+         {
+           fscanf(fp,"%d\t%s",&it[i].ino,it[i].name);
+        if(strcmp(it[i].name,it[j].name)>0)
+         {
+           temp=it[i];
+           it[i]=it[j];
+           it[j]=temp;
+         }
+
+         }
+      }
+    for(i=0;i<n;i++)
+      {
+        printf("%d.%s\n",it[i].ino,it[i].name);
+      }
+    fclose(fp);
+}
+
+
+bash-3.2$ cc sort.c
+bash-3.2$ ./a.out
+Enter the no of items
+2
+Enter Item no
+1
+Enter Item name
+pen
+Enter Item no
+2
+Enter Item name
+book
+2.book
+1.pen
+bash-3.2$ cat library.c
+/*Exercise 11 Program 2
+AUMRUDH LAL KUMAR*/
+//Library Search
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct bookdetails
+{
+  int accno;
+  char name[20];
+  char author[20];
+  char pub[20];
+}book;
+main()
+{
+   int i,n;
+   FILE *fp;
+   book b[20];
+   char search[20];
+   fp=fopen("Book.dat","wb");
+   printf("Enter the no of book\n");
+   scanf("%d",&n);
+   for(i=0;i<n;i++)
+     {
+       printf("Enter access no\n");
+       scanf("%d",&b[i].accno);
+       printf("Enter book title\n");
+       scanf("%s",b[i].name);
+       printf("Enter author name\n");
+       scanf("%s",b[i].author);
+       printf("Enter publisher nameo\n");
+       scanf("%s",b[i].pub);
+       fwrite(&b[i],sizeof(book),1,fp);
+     }
+    printf("Enter the Book titile to be searched\n");
+    scanf("%s",search);
+    for(i=0;i<n;i++)
+      {
+        fread(&b[i],sizeof(book),1,fp);
+        if(strcmp(b[i].name,search)==0)
+           {
+            printf("The Book is available\n");
+            break;
+           }
+        else
+          printf("The book is unavailable\n");
+      }
+    fclose(fp);
+}
+
+bash-3.2$ cc library.c
+bash-3.2$ ./a.out
+Enter the no of book
+2
+Enter access no
+12
+Enter book title
+story
+Enter author name
+savi
+Enter publisher nameo
+kanna
+Enter access no
+26
+Enter book title
+story2
+Enter author name
+savi
+Enter publisher nameo
+kanna
+Enter the Book titile to be searched
+story
+The Book is available
+bash-3.2$ ./a.out
+Enter the no of book
+1
+Enter access no
+12
+Enter book title
+story
+Enter author name
+savi
+Enter publisher nameo
+kanna
+Enter the Book titile to be searched
+story2
+The book is unavailable
+bash-3.2$ exit
+exit
+
+Script done on Tue 04 Dec 2018 11:57:01 AM IST

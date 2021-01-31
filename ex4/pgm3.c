@@ -1,0 +1,61 @@
+/*Exercise 5 Program 3
+AUMRUDH LAL KUMAR TJ*/
+//Program to Do Matrix Subtraction
+#include<stdio.h>
+main()
+{
+    int a[3][3],b[3][3],c[3][3];
+    int i,j;
+    printf("Enter The elements of Matrix A\n");
+    for(i=0;i<3;i++)
+    {
+      for(j=0;j<3;j++)
+        {
+          scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter The elements of Matrix B\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+         scanf("%d",&b[i][j]);
+        }
+     }
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+         {
+           c[i][j]=a[i][j]-b[i][j];
+         }
+     }
+    printf("Matrix A is\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+          printf("%d\t",a[i][j]);
+        }
+      printf("\n");
+     }
+     printf("Matrix B is\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+          printf("%d\t",b[i][j]);
+        }
+      printf("\n");
+     }
+    printf("Matrix C is\n");
+    for(i=0;i<3;i++)
+     {
+       for(j=0;j<3;j++)
+        {
+          printf("%d\t",c[i][j]);
+        }
+      printf("\n");
+     }
+
+         
+}

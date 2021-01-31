@@ -1,0 +1,376 @@
+Script started on Tue 20 Nov 2018 11:09:54 AM IST
+bash-3.2$ cat pgm1.c
+/*Exercise 7 Program 1
+AUMRUDH LAL KUMAR TJ*/
+//Program to find largest  of three nos using pointers
+#include<stdio.h>
+int *larger(int*,int*,int*);
+main()
+{
+    int a,b,c,*p,big;
+    p=&big;
+    printf("Enter 3 numbers\n");
+    scanf("%d%d%d",&a,&b,&c);
+    *p=larger(&a,&b,&c);
+    printf("The largest of three nos is %d\n",*p);
+}
+
+int *larger(int*x,int*y,int*z)
+{
+   if((*x>*x)&&(*x>*z))
+     return *x;
+   else if((*y>*x)&&(*y>*z))
+     return *y;
+   else 
+     return *z;
+}
+bash-3.2$ cc pgm1.c
+pgm1.c: In function ‘main’:
+pgm1.c:12: warning: assignment makes integer from pointer without a cast
+pgm1.c: In function ‘larger’:
+pgm1.c:19: warning: return makes pointer from integer without a cast
+pgm1.c:21: warning: return makes pointer from integer without a cast
+pgm1.c:23: warning: return makes pointer from integer without a cast
+bash-3.2$ ./a.out
+Enter 3 numbers
+10
+20
+5
+The largest of three nos is 20
+bash-3.2$ cat fibo[Kbo.c
+/*Exercise 7 Program 2
+AUMRUDH LAL KUMAR*/
+//Program to Generate fibbanacci series using pointer
+#include<stdio.h>
+#include<malloc.h>
+main()
+{
+   int n,first,second,i,*ptr;
+   first=0;second=1;
+   printf("Enter the no of terms\n");
+   scanf("%d",&n);
+   ptr=(int*)malloc(sizeof(int)*n);
+   *(ptr+0)=0;
+   *(ptr+1)=1;
+   for(i=2;i<n;i++)
+     {
+       *(ptr+i)=first+second;
+       first=second;
+       second=*(ptr+i);
+     }
+   for(i=0;i<n;i++)
+    printf("%d\t",*(ptr+i));
+    printf("\n");
+}
+bash-3.2$ cc fibbo.c
+bash-3.2$ ./a.out
+Enter the no of terms
+7
+0	1	1	2	3	5	8	
+bash-3.2$ cc [K[Kat sear[K[K[K[Kreverse.c
+/*Exercise 7 Program 3
+AUMRUDH LAL KUMAR TJ*/
+//Program to reverse a string using pointer
+#include<stdio.h>
+#include<string.h>
+void reverse(char*);
+main()
+{
+    char str[20];
+    printf("Enter the string\n");
+    scanf("%s",str);
+    reverse(str);
+    printf("The reversed string is %s\n",str);
+}
+
+void reverse(char*string)
+{
+   char *first,*last,temp;
+   int length;
+   length=strlen(string);
+   first=string;
+   last=&string[length-1];
+   while(first<last)
+     {
+       temp=*first;
+       *first=*last;
+       *last=temp;
+       first++;
+       last--;
+     }
+}
+bash-3.2$ cc reverse.c
+bash-3.2$ ./a.out
+Enter the string
+department
+The reversed string is tnemtraped
+bash-3.2$ cat marks.c
+/*Exercise 7 program 4
+AUMRUDH LAL KUMAR TJ*/
+//Program to calcute tot marks and increse sub during runtime
+#include<stdio.h>
+#include<malloc.h>
+#include<stdlib.h>
+main()
+{
+  int *marks,i,tot=0,n,m,additional;
+  int ch;
+  printf("Enter the number of subjects\n");
+  scanf("%d",&n);
+  marks=(int*)malloc(n*sizeof(int));
+  printf("Enter the marks\n");
+  for(i=0;i<n;i++)
+  {
+    scanf("%d",&marks[i]);
+    tot+=marks[i];
+  }
+  for(i=0;i<n;i++)
+    {
+      printf("Subject %d mark =%d\n",i+1,marks[i]);
+    }
+  printf("The Total marks of %d subject are %d\n",n,tot);
+  printf("Do you want to add more no. of subjects? type 1 for yes \n");
+  scanf("%d",&ch);
+  if(ch==1)
+     {
+       printf("Enter the addtional no of subjects\n");
+       scanf("%d",&additional);
+       m=n+additional;
+       marks=realloc(marks,sizeof(int)*m);
+       printf("Enter the %d marks\n",additional);
+       for(i=n;i<m;i++)
+         {
+           scanf("%d",&marks[i]);
+           tot=tot+marks[i];
+         }
+    
+   for(i=0;i<m;i++)
+     {
+       printf("Subject %d mark =%d\n",i+1,marks[i]);
+     }
+   printf("Total Marks of %d subject is %d\n",m,tot);
+free(marks);
+} 
+}                                                                                                                                   
+bash-3.2$ cc marks.c
+bash-3.2$ ./a.out
+Enter the number of subjects
+5
+Enter the marks
+88
+99
+95
+92
+55
+Subject 1 mark =88
+Subject 2 mark =99
+Subject 3 mark =95
+Subject 4 mark =92
+Subject 5 mark =55
+The Total marks of 5 subject are 429
+Do you want to add more no. of subjects? type 1 for yes 
+1
+Enter the addtional no of subjects
+2
+Enter the 2 marks
+99
+85
+Subject 1 mark =88
+Subject 2 mark =99
+Subject 3 mark =95
+Subject 4 mark =92
+Subject 5 mark =55
+Subject 6 mark =99
+Subject 7 mark =85
+Total Marks of 7 subject is 613
+bash-3.2$ ./a.out
+Enter the number of subjects
+3
+Enter the marks
+88
+99
+95
+Subject 1 mark =88
+Subject 2 mark =99
+Subject 3 mark =95
+The Total marks of 3 subject are 282
+Do you want to add more no. of subjects? type 1 for yes 
+0
+bash-3.2$ cat searchstring.c
+/*Exercise 7 Program 5
+AUMRUDH LAL KUMAR TJ*/
+//Program to search string
+#include<stdio.h>
+#include<malloc.h>
+#include<stdlib.h>
+#include<string.h>
+main()
+{
+   char **ptr,key[20];
+   int i,j,n,size=20,found=0;
+   printf("Enter the No of string\n");
+   scanf("%d",&n);
+   ptr=(char**)malloc(sizeof(char)*n);
+   if(!ptr)
+    {
+      printf("Out of memory\n");
+      exit(1);
+    }
+   for(i=0;i<n;i++)
+    {
+     ptr[i]=(char**)malloc(sizeof(char)*size);
+    }
+   printf("Enter %d strings\n",n);
+   for(i=0;i<n;i++)
+    {
+     scanf("%s",ptr[i]);
+    }
+    printf("Enter the name to be searched\n");
+    scanf("%s",key);
+    for(i=0;i<n;i++)
+     {
+       if(strcmp(ptr[i],key)==0)
+        {
+         found=1;
+         break;
+        }
+     }
+    if(found==1)
+    printf("\nThe given string %s is found at %d\n",key,i+1);
+    else
+      printf("The given string is not found\n");
+     free(ptr);
+}
+bash-3.2$ cc searchstring.c
+searchstring.c: In function ‘main’:
+searchstring.c:22: warning: assignment from incompatible pointer type
+bash-3.2$ ./a.out
+Enter the No of string
+3
+Enter 3 strings
+it
+information
+technology
+Enter the name to be searched
+tech
+The given string is not found
+bash-3.2$ ./a.out
+Enter the No of string
+3
+Enter 3 strings
+it
+information
+tecnology      hnology
+Enter the name to be searched
+information
+
+The given string information is found at 2
+bash-3.2$ cat rollno.c
+/*Exercise 7 Program 6
+AUMRUDH LAL KUMAR TJ*/
+//Program to allocate roll nos
+#include<stdio.h>
+#include<malloc.h>
+main()
+{
+   int *roll1,*roll2,n,i,j,k,start;
+   printf("Enter the number of students\n");
+   scanf("%d",&n);
+   printf("Enter the starting roll no\n");
+   scanf("%d",&start);
+   roll1=(int*)malloc(sizeof(int)*(n/2));
+   if(n%2==0)
+    {
+     roll2=(int*)malloc(sizeof(int)*(n/2));
+    }
+   else
+    {
+      roll2=(int*)malloc(sizeof(int)*(n/2+1));\
+    }
+   for(i=0;start<=n;start++)
+     {
+       if(start%2==0)
+          {
+            roll1[i]=start;
+            i++;
+          }
+       else
+         {
+           roll2[j]=start;
+           j++;
+         }
+     }
+    printf("Students roll nos allocated for even staffs\n");
+    for(k=0;k<i;k++)
+      {
+        printf("%d\t",roll1[k]);
+      }
+     printf("\nStudents roll nos allocated for odd staffs\n");
+    for(k=0;k<j;k++)
+      {
+        printf("%d\t",roll2[k]);
+      }
+    printf("\n");
+}
+bash-3.2$ cc rollno.c
+bash-3.2$ ./a.out
+Enter the number of students
+10
+Enter the starting roll no
+1
+Students roll nos allocated for even staffs
+2	4	6	8	10	
+Students roll nos allocated for odd staffs
+1	3	5	7	9	
+bash-3.2$ cc [K[Kat sd.c
+/*Exercise 7 Program 7
+AUMRUDH LAL KUMAR TJ*/
+//Program to calculate standard deivation
+#include<stdio.h>
+#include<malloc.h>
+#include<math.h>
+float SD(int*,int,float);
+main()
+{
+     int *a,n,i,sum=0;
+     float mean,sd;
+     printf("Enter the no of elements\n");
+     scanf("%d",&n);
+     a=(int*)malloc(sizeof(int)*n);
+     printf("Enter the elements\n");
+     for(i=0;i<n;i++)
+     {
+        scanf("%d",&a[i]);
+        sum=sum+*(a+i);
+     }
+     mean=sum/n;
+     sd=SD(a,n,mean);
+     printf("The Standard deviation is %f\n",sd);
+}
+
+float SD(int*x,int no ,float m)
+{
+   float total=0.0,sd;
+   int i;
+   for(i=0;i<no;i++)
+     {
+       total+=pow(*(x+i)-m,2);
+     }
+    sd=sqrt(total/no);
+   return sd;
+}
+bash-3.2$ cc -lm c[Ksd.c
+bash-3.2$ ./a.out
+Enter the no of elements
+5
+Enter the elements
+1
+2
+3
+4
+5
+The Standard deviation is 1.414214
+bash-3.2$ exit
+exit
+
+Script done on Tue 20 Nov 2018 11:13:38 AM IST

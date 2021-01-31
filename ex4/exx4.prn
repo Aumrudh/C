@@ -1,0 +1,103 @@
+Script started on Tue 09 Oct 2018 11:02:40 AM IST
+bash-3.2$ cat pgm1.c
+/*AUMRUDH LAL KUMAR TJ 
+Exercise 4 Program 1*/
+//Program to convert decimal to hexadecimal
+#include<stdio.h>
+main()
+{
+  int m,n,i,a[1000],r,count=0;
+  printf("Enter a number \n" );
+  scanf("%d",&n);
+  m=n;
+   for(i=0;n>0;i++)
+     {
+      r=n%16;
+      a[i]=r;
+      n/=16;
+     }
+  count++;
+  printf("The hexadecimal equivalent for %d is\n",m);
+   for(i=count--;i>=0;i--)
+     {
+       if(a[i]==10)
+         printf("A");
+       else if(a[i]==11)
+         printf("B");
+       else if(a[i]==12)
+         printf("C");
+       else if(a[i]==13)
+         printf("D");
+       else if(a[i]==14)
+         printf("E");
+       else if(a[i]==15)
+         printf("F");
+       else 
+         printf("%d",a[i]);
+
+     }
+   printf("\n");
+}
+       
+
+bash-3.2$ 
+bash-3.2$ 77
+bash: 77: command not found
+bash-3.2$ 77cat pgm1.c[6Pexitcat pgm1.c[Cc pgm1.cc pgm1.c[1@ [C
+cat: cc: No such file or directory
+/*AUMRUDH LAL KUMAR TJ 
+Exercise 4 Program 1*/
+//Program to convert decimal to hexadecimal
+#include<stdio.h>
+main()
+{
+  int m,n,i,a[1000],r,count=0;
+  printf("Enter a number \n" );
+  scanf("%d",&n);
+  m=n;
+   for(i=0;n>0;i++)
+     {
+      r=n%16;
+      a[i]=r;
+      n/=16;
+     }
+  count++;
+  printf("The hexadecimal equivalent for %d is\n",m);
+   for(i=count--;i>=0;i--)
+     {
+       if(a[i]==10)
+         printf("A");
+       else if(a[i]==11)
+         printf("B");
+       else if(a[i]==12)
+         printf("C");
+       else if(a[i]==13)
+         printf("D");
+       else if(a[i]==14)
+         printf("E");
+       else if(a[i]==15)
+         printf("F");
+       else 
+         printf("%d",a[i]);
+
+     }
+   printf("\n");
+}
+       
+
+bash-3.2$ cc pgm1.c
+bash-3.2$ cc pgm1.c[4@at c[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C77[Kcat pgm1.c[6Pexitcat pgm2.c[K[K[K[K[K[K[K[K[K[K/*[K[K./.aout[K[K[K.out
+bash: ./.a.out: No such file or directory
+bash-3.2$ ./.a.outcc pgm1.c[4@at c[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C77[Kcat pgm1.c[6Pexitcat pgm2.cvi pgm1.c[C[C[C[C[C[C[C[C[C[C[4Pvi pgm3.c[3Pcd ex4logout[4Pcd./a.outcc pgm4.cvi[C[C[C[C[C[C[Ccc[C[C[C[C[C[C[C[2P./a.out
+Enter a number 
+exit
+The hexadecimal equivalent for 0 is
+00
+bash-3.2$ exot
+bash: exot: command not found
+bash-3.2$ exity
+bash: exity: command not found
+bash-3.2$ exit
+exit
+
+Script done on Tue 09 Oct 2018 11:04:23 AM IST

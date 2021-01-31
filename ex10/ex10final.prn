@@ -1,0 +1,156 @@
+Script started on Mon 10 Dec 2018 10:31:23 AM IST
+bash-3.2$cat readfinal.c
+/*Exercise 10 Program 1
+AUMRUDH LAL KUMAR TJ*/
+#include<ctype.h>
+#include<stdio.h>
+main()
+{
+char ch,name[20],ch1;
+FILE *fp;
+int n=0;
+printf("Enter File name:\n");
+scanf("%s",name);
+fp=fopen(name,"r+");
+if(fp==NULL)
+{
+ printf("The File doesnot opened");
+}
+printf("Enter file content until #");
+ch=getchar();
+while(ch!='#')
+{
+ putc(ch,fp);
+ ch=getchar();
+}
+ch1=getc(fp);
+fclose(fp);
+fp=fopen(name,"r");
+ch1=getc(fp);
+while(ch1!=EOF)
+{
+ if(ch1=='a'||ch1=='e'||ch1=='i'||ch1=='o'|| ch1=='u')
+  {
+    n++;
+  }
+ printf("%c",ch1);
+ ch1=getc(fp);
+}
+printf("\n The no of vowels is %d\n",n);
+fclose(fp);
+}                                          
+bash-3.2$ cc readfinal.c
+bash-3.2$ ./a.out
+Enter File name:
+lal.txt
+Enter file content until #aumrudh#
+
+aumrudh
+The no of vowels is 3
+bash-3.2$ cat count.c
+/*Exercise 10 Program 2
+AUMRUDH LAL KUMAR TJ*/
+//Program to count words,lines characters 
+#include<stdio.h>
+main()
+{
+    char ch,name[20];
+    int ccount=0,lcount=0,wcount=0;
+    FILE *fp;
+    printf("Enter file name\n");
+    scanf("%s",name);
+    fp=fopen(name,"r");
+    ch=getc(fp);
+    while(ch!=EOF)
+    {
+     ccount++;
+       if(ch=='\n')
+        {
+          lcount++;
+        }
+       if(ch==' ')
+        {
+          wcount++;
+        }
+    ch=getc(fp);
+   }
+   printf("Total no of words,characters,lines is %d %d %d\n",wcount,ccount,lcount);
+   fclose(fp);
+} 
+   
+bash-3.2$ cc count.c
+bash-3.2$ ./a.out
+Enter file name
+aumrudh.txt
+Total no of words,characters,lines is 3 18 1
+bash-3.2$ cat aumrudh.txt
+Welcome to Files 
+bash-3.2$ cat merge.c
+/*Excercise 10 Program 3
+AUMRUDH LAL KUMAR TJ*/
+//Program to merge two files
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+    FILE *fp1,*fp2,*fp3;
+    char c,fname1[20],fname2[20],fname3[20];
+    printf("Enter the file Name1 \n");
+    scanf("%s",fname1);
+    printf("Enter the file Name2 \n");
+    scanf("%s",fname2);
+    printf("Enter the file Name3 \n");
+    scanf("%s",fname3);   
+    fp1=fopen(fname1,"r");
+    fp2=fopen(fname2,"r");
+    fp3=fopen(fname3,"w");
+    if(fp1==NULL)
+       {
+         puts("File unable to open\n");
+         exit(1);
+       }
+    if(fp2==NULL)
+       {
+         puts("File unable to open\n");
+         exit(1);
+       }
+     if(fp3==NULL)
+       {
+         puts("File unable to open\n");
+         exit(1);
+       }
+    c=getc(fp1);
+    while(c!=EOF)
+      {
+        putc(c,fp3);
+        c=getc(fp1);
+      }
+    c=getc(fp2);
+    while(c!=EOF)
+      {
+        putc(c,fp3);
+        c=getc(fp2);
+      }
+    puts("Merged Successfully\n");
+   fclose(fp1);
+   fclose(fp2);
+   fclose(fp3);
+}
+bash-3.2$ cc merge.c
+bash-3.2$ ./a.out
+Enter the file Name1 
+aumrudh.txt
+Enter the file Name2 
+lal.txt
+Enter the file Name3 
+output.txt
+Merged Successfully
+
+bash-3.2$ cat output.txt
+Welcome to Files 
+
+aumrudh
+bash-3.2$ exit
+exit
+
+Script done on Mon 10 Dec 2018 10:33:46 AM IST

@@ -1,0 +1,310 @@
+Script started on Tue 20 Nov 2018 12:45:32 PM IST
+bash-3.2$ cat distance.c
+/*Exercise 8 Program1
+AUMRUDH LAL KUMAR TJ*/
+//Program to calcaluate distance b\w 2points
+#include<stdio.h>
+#include<math.h>
+struct point
+{
+   float x;
+   float y;
+}p1,p2;
+main()
+{
+   float distance;
+   printf("Enter the first point\n");
+   scanf("%f%f",&p1.x,&p1.y);
+   printf("Enter the second point\n");
+   scanf("%f%f",&p2.x,&p2.y);
+   distance=sqrt((p1.y-p2.y)*(p1.y-p2.y)+(p1.x-p2.x)*(p1.x-p2.x));
+   printf("The distance between two points is %f\n",distance);
+}
+bash-3.2$ cc -lm distance.c
+bash-3.2$ ./a.out
+Enter the first point
+2
+1
+Enter the second point
+1
+2
+The distance between two points is 1.414214
+bash-3.2$ cat employee.c
+/*Excersie 8 Program 2
+AUMRUDH LAL KUMAR TJ*/
+//Program To Print emplyee details
+#include<stdio.h>
+struct employee
+{
+  int eid;
+  char name[20];
+  char dep[20];
+  float bpay;
+  float da;
+  float hra;
+  float gpay;
+  float npay;
+  float pf;
+}em[50];
+main()
+{
+   int n,i;
+   printf("Enter the number of employee\n");
+   scanf("%d",&n);
+   for(i=0;i<n;i++)
+     {
+      printf("Enter the employee id\n");
+      scanf("%d",&em[i].eid);
+      printf("Enter the employee name\n");
+      scanf("%s",em[i].name);
+      printf("Enter the employee department\n");
+      scanf("%s",em[i].dep);
+      printf("Enter the Basic Pay\n");
+      scanf("%f",&em[i].bpay);
+      em[i].da=em[i].bpay*0.5;
+      em[i].hra=em[i].bpay*0.05;
+      em[i].gpay=em[i].bpay+em[i].da+em[i].hra;
+      em[i].pf=em[i].bpay*0.10;
+      em[i].npay=em[i].gpay-em[i].pf;
+     }
+    printf("The Employee Details are\n");
+    printf("\n--------------------------------------------------------------------------------------------------------------------------------------------\n");
+    printf("\nEmployee ID \t Name \t Department \t Basicpay \t DA \t\t HRA \t\tPF \t\t Gross Pay \t\tNetpay\n");
+    printf("\n--------------------------------------------------------------------------------------------------------------------------------------------\n");
+    for(i=0;i<n;i++)
+     {
+       printf("%d\t\t%s\t\t%s\t%f\t%f\t%f\t%f\t%f\t\t%f",em[i].eid,em[i].name,em[i].dep,em[i].bpay,em[i].da,em[i].hra,em[i].pf,em[i].gpay,em[i].npay);
+       printf("\n");
+     }
+}
+bash-3.2$ cc employee.c
+bash-3.2$ ./a.out
+Enter the number of employee
+2
+Enter the employee id
+1
+Enter the employee name
+tj
+Enter the employee department
+it
+Enter the Basic Pay
+10000
+Enter the employee id
+2
+Enter the employee name
+lal
+Enter the employee department
+cse
+Enter the Basic Pay
+20000
+The Employee Details are
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Employee ID 	 Name 	 Department 	 Basicpay 	 DA 		 HRA 		PF 		 Gross Pay 		Netpay
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+1		tj		it	10000.000000	5000.000000	500.000000	1000.000000	15500.000000		14500.000000
+2		lal		cse	20000.000000	10000.000000	1000.000000	2000.000000	31000.000000		29000.000000
+bash-3.2$ cc rank.c
+/*Excersie 8 Program 3
+AUMRUDH LAL KUMAR TJ*/
+//Program to calculate rank
+#include<stdio.h>
+#include<string.h>
+struct student
+{
+  int rollno;
+  char name[20];
+  int marks[6];
+  int total;
+}stud[100],temp;
+main()
+{
+   int i,j,k,n;
+   printf("Enter the no of students \n");
+   scanf("%d",&n);
+   for(i=0;i<n;i++)
+     {
+       printf("Enter the roll no for student %d\n",i+1);
+       scanf("%d",&stud[i].rollno);
+       printf("Enter the name\n"); 
+       scanf("%s",stud[i].name);
+       stud[i].total=0;
+       printf("Enter the marks\n");
+         for(j=0;j<6;j++)
+           {
+             scanf("%d",&stud[i].marks[j]);
+             stud[i].total+=stud[i].marks[j];
+           }
+     }
+   for(i=0;i<n;i++)
+      {
+        for(j=i+1;j<n;j++)
+           {
+              if(stud[i].total<stud[j].total)
+                  {
+                     temp.rollno=stud[i].rollno;
+									   strcpy(temp.name,stud[i].name);
+										 temp.total=stud[i].total;
+                     stud[i].rollno=stud[j].rollno;
+                     strcpy(stud[i].name,stud[j].name);
+                     stud[i].total=stud[j].total;
+                     stud[j].rollno=temp.rollno;
+                     strcpy(stud[j].name,temp.name);
+                     stud[j].total=temp.total;
+                     for(k=0;k<6;k++)
+                      {
+                        temp.marks[k]=stud[i].marks[k];
+                        stud[i].marks[k]=stud[j].marks[k];
+                        stud[j].marks[k]=temp.marks[k];
+                      }
+                   }
+           }
+      }
+   printf("\n---------------------------------------------------------------------------------------------------------------\n");
+   printf("\nRollNO \t\t Name \t\t Marks\t\t\t\t\t\t      Total\n");
+   printf("\n---------------------------------------------------------------------------------------------------------------\n");
+   for(i=0;i<n;i++)
+      {
+       printf("\n%d\t\t%s\t",stud[i].rollno,stud[i].name);
+        for(j=0;j<6;j++)
+          {
+            printf("\t%d  ",stud[i].marks[j]);
+          }
+      printf("\t\t%d\t",stud[i].total);
+      }
+     printf("\n");
+}
+bash-3.2$ cc rank.c
+bash-3.2$ ./a.out
+Enter the no of students 
+3
+Enter the roll no for student 1
+30
+Enter the name
+tj
+Enter the marks
+99
+99
+99
+99
+99
+100
+Enter the roll no for student 2
+31
+Enter the name
+lal
+Enter the marks
+100
+99
+100
+99
+100
+98
+Enter the roll no for student 3
+33
+Enter the name
+kumar
+Enter the marks
+90
+91
+92
+93
+94
+95
+
+---------------------------------------------------------------------------------------------------------------
+
+RollNO    		 Name 		 Marks				              		      Total
+
+---------------------------------------------------------------------------------------------------------------
+
+31	         	lal  	  	100  	99  	100  	99  	100  	98  		596	
+30	        	tj	     	99  	99  	99  	99  	99  	100  		595	
+32	        	kumar	  	90  	91  	92  	93  	94  	95  		555	
+bash-3.2$ cat bank.c
+/*Exercise 8 Program 4
+AUMRUDH LAL KUMAR TJ*/
+//Program to do Bank Process
+#include<stdio.h>
+struct Bankaccount
+{
+   int accountno;
+   char name[20];
+   float credit;
+   float debit;
+   float balance;
+}ba;
+void deposit(struct Bankaccount);
+void withdraw(struct Bankaccount);
+main()
+{
+   int choice;
+   printf("Enter the account no\n");
+   scanf("%d",&ba.accountno);
+   printf("Enter the Name of the account of the holder name\n");
+   scanf("%s",ba.name);
+   printf("Enter the opening balance\n");
+   scanf("%f",&ba.balance);
+   printf("1-Deposit\n2.Withdraw\n");
+   scanf("%d",&choice);
+   if(choice==1)
+     {
+      deposit(ba);
+     }
+   else if(choice==2)
+     {
+      withdraw(ba);
+     }
+   else
+     {
+      printf("Invalid Option\n");
+     }
+}
+
+void deposit(struct Bankaccount b)
+{
+   printf("Enter the deposit amount\n");
+   scanf("%f",&b.credit);
+   b.balance+=b.credit;
+   printf("Account Number %d is credited with %f and Your New Balance is %f\n",b.accountno,b.credit,b.balance);
+}
+void withdraw(struct Bankaccount c)
+{
+   printf("Enter the withdrawal amount\n");
+   scanf("%f",&c.debit);
+   c.balance-=c.debit;
+   printf("Account Number %d debited is  %f and Your New Balance is %f\n",c.accountno,c.debit,c.balance);
+}
+
+
+bash-3.2$ cc bank.c
+bash-3.2$ ./a.out
+Enter the account no
+1
+Enter the Name of the account of the holder name
+tj
+Enter the opening balance
+1000
+1-Deposit
+2.Withdraw
+1
+Enter the deposit amount
+1
+Account Number 1 is credited with 1.000000 and Your New Balance is 1001.000000
+bash-3.2$ ./a.out
+Enter the account no
+2
+Enter the Name of the account of the holder name
+lal
+Enter the opening balance
+10000
+1-Deposit
+2.Withdraw
+2
+Enter the withdrawal amount
+1
+Account Number 2 debited is  1.000000 and Your New Balance is 9999.000000
+bash-3.2$ exit
+Script done on Tue 20 Nov 2018 12:50:45 PM IST

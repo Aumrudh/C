@@ -1,0 +1,138 @@
+Script started on Tue 25 Sep 2018 11:40:31 AM IST
+bash-3.2$ cat vi pgm1.c
+cat: vi: No such file or directory
+/*Aumrudh Lal Kumar TJ
+Exercise 3 Program 1*/
+//Program to Check wheather a given number is prime or not
+#include<stdio.h>
+main()
+{
+  int n,i=2;
+  printf("Enter A number \n");
+  scanf("%d",&n);
+  while(i<=n/2)
+    {
+      {
+        if((n%i)==0)
+        break;
+      }
+    i++;
+    }
+   if((n%i)==0)
+       printf("The number %d is not prime\n",n);
+   else
+       printf("The Number %d is prime\n",n);
+}
+bash-3.2$ cc pgm1.c
+bash-3.2$ cc pgm1.c[4@at vi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Kcat vi pgm1.c[C[C[C[C[C[C[C[C[C[C[7Plogout[4Pcdvi pgm4.ccc[C[C[C[C[C[C[C[2P./a.out
+Enter A number 
+9
+The number 9 is not prime
+bash-3.2$ ./a.out
+Enter A number 
+3
+The Number 3 is prime
+bash-3.2$ cat pgm2.c
+/*Aumrudh Lal Kumt TJ
+Exercise 3 Program 2*/
+//Program to find sum of digits
+#include<stdio.h>
+main()
+{
+  int n,r,sum,a;
+  printf("Enter  Number\n");
+  scanf("%d",&n);
+  a=n;
+  for(sum=0;n!=0;n=n/10)
+    {
+      r=n%10;
+      sum+=r;
+    }
+  printf("The sum of digit of number %d is %d\n",a,sum);
+}
+bash-3.2$ cat pgm2.c[1P[1P[1P pgm2.cc pgm2.cc pgm2.c
+bash-3.2$ cc pgm2.c[1@at[C[C[C[C[C[C[C[3P./a.out
+Enter  Number
+145
+The sum of digit of number 145 is 10
+bash-3.2$ ./a.out
+Enter  Number
+165
+The sum of digit of number 165 is 12
+bash-3.2$ ./a.outcc pgm2.c[1@at[C[C[C[C[C[C[C[1Pc[C[C[C[C[C[C[C[1@at[C[C[C[C[C[C[C[1P.c2.c3.c[1P.c[1P.c3.c
+/*Aumrudh Lal Kumar TJ
+Exercise 3 Program 3*/
+//Program to Print Pattern
+#include<stdio.h>
+main()
+{
+    int i,j,n;
+    printf("Enter the no. of lines for pattern printing\n");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+     {
+       for(j=1;j<=i;j++)
+         {
+            printf("%d\t",i);
+         }
+      printf("\n");
+     }
+}
+bash-3.2$ cat pgm3.c[3P./a.outcat pgm3.c[3P./a.outcat pgm3.c[1P pgm3.c[1P pgm3.cc pgm3.c
+bash-3.2$ cc pgm3.c[1@at[C[C[C[C[C[C[C[3P./a.out
+Enter the no. of lines for pattern printing
+5
+1	
+2	2	
+3	3	3	
+4	4	4	4	
+5	5	5	5	5	
+bash-3.2$ ./a.out
+Enter the no. of lines for pattern printing
+2
+1	
+2	2	
+bash-3.2$ cat pgm4.c
+/*Aumrudh Lal Kumar TJ
+Excercise 3 Program 4*/
+//Program To check divisiblity by 11 using loop
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+    int a,b,n,evensum=0,oddsum=0,diff,rem;
+    printf("Enter a  Number\n");
+    scanf("%d",&n);
+    a=n;
+    b=n;
+    while(a>0)
+     {
+       oddsum=oddsum+(a%10);
+       a=a/100;
+     }
+    while(b>0)
+     {
+       rem=(b%100);
+       evensum=evensum+(rem/10);
+       b=b/100;
+     }
+    diff=abs(evensum-oddsum);
+    if(diff==0)
+     printf("The No %d is Divisible by 11\n",n);
+    else
+     printf("The no %d is not  divisible by 11\n",n);
+}
+
+bash-3.2$ cc pgm4.c
+bash-3.2$ cc pgm4.c[1@at[C[C[C[C[C[C[C[3P./a.out
+Enter a  Number
+121
+The No 121 is Divisible by 11
+bash-3.2$ ./a.out
+Enter a  Number
+45
+The no 45 is not  divisible by 11
+bash-3.2$ exit
+exit
+
+Script done on Tue 25 Sep 2018 11:44:25 AM IST
